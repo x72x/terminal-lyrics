@@ -1,3 +1,4 @@
 syncedlyrics
 colorama
 yt-dlp
+python-vlc

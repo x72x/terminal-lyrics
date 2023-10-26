@@ -1,11 +1,10 @@
 if __name__ == "__main__":
-    import subprocess
     from syncedlyrics import search
     from colorama import Fore
     from time import sleep
     from shutil import get_terminal_size
-    from threading import Thread
     from yt_dlp import YoutubeDL
+    import vlc
 
     url = input(
         "Enter YT Music URL from https://music.youtube.com : \n - "
@@ -25,12 +24,8 @@ if __name__ == "__main__":
         d.append([minute*60+seconds, i.split("]")[1]])
 
     print("\033c", end="")
-    func = lambda : subprocess.run(
-        args=f'ffplay "{path}"',
-        stderr=subprocess.PIPE,
-        stdout=subprocess.PIPE
-    )
-    Thread(target=func).start()
+    p = vlc.MediaPlayer(path)
+    p.play()
     columns = get_terminal_size().columns
     for i in d:
         if d.index(i) == 0:
@@ -42,5 +37,7 @@ if __name__ == "__main__":
         for x in d:
             if count == 15: break
             if x[1] not in v: print((Fore.LIGHTBLACK_EX + x[1]).center(columns)); count += 1
+        # sleep(i[0] - d[d.index(i) -1][0])
         sleep(d[d.index(i) + 1][0] - i[0])
+        # print("    ", end='\r')
         print("\033c", end="")
