@@ -37,7 +37,8 @@ if __name__ == "__main__":
         for x in d:
             if count == 15: break
             if x[1] not in v: print((Fore.LIGHTBLACK_EX + x[1]).center(columns)); count += 1
-        # sleep(i[0] - d[d.index(i) -1][0])
-        sleep(d[d.index(i) + 1][0] - i[0])
-        # print("    ", end='\r')
+        try:
+            sleep(d[d.index(i) + 1][0] - i[0])
+        except:
+            pass
         print("\033c", end="")
