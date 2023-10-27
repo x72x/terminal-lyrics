@@ -45,9 +45,14 @@ if __name__ == "__main__":
     Thread(target=play, args=(audio,)).start()
     columns = get_terminal_size().columns
     print("\033c", end="")
+    count = 1
+    for i in d:
+        if count == 15: break
+        print((Fore.LIGHTBLACK_EX + i[1]).center(columns)); count+=1
     for i in d:
         if i[2] == 0:
             sleep(i[0])
+            print("\033c", end="")
         else:
             print((Fore.LIGHTBLACK_EX + d[d.index(i) - 1][1]).center(columns))
         print((Fore.WHITE + i[1]).center(columns)); v.append(i[2])
