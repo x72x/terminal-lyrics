@@ -20,7 +20,7 @@
 
 ## Thanks For:
 
-- **[python-vlc](https://github.com/oaubert/python-vlc)** for media player.
+- **[pydub](https://github.com/jiaaro/pydub)** for media player.
 - **[yt-dlp](https://github.com/yt-dlp/yt-dlp)** for YT Music scrapper.
 - **[syncedlyrics](https://github.com/0x7d4/syncedlyrics)** for Musixmatch and Spotify synced lyrics.
 
