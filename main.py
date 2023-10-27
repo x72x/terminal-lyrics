@@ -7,6 +7,7 @@ if __name__ == "__main__":
     from pydub import AudioSegment
     from pydub.playback import play
     from threading import Thread
+    from re import findall
     import os
 
     get_video_id = lambda url : url.split("watch?v=")[1].split("&")[0] if "&" in url else url.split("watch?v=")[1]
@@ -35,10 +36,12 @@ if __name__ == "__main__":
 
     d, v, count = [], [], 0
     for i in lrc.splitlines():
-        time_ = i.split("[")[1].split("]")[0].strip()
-        minute, seconds = int(time_.split(":")[0]), float(time_.split(":")[1])
-        d.append([minute*60+seconds, "♪" if i.split("]")[1] == " " else i.split("]")[1], count])
-        count += 1
+        if i:
+            time_ = i.split("[")[1].split("]")[0].strip()
+            if not findall("[a-zA-Z]+", time_):
+                minute, seconds = int(time_.split(":")[0]), float(time_.split(":")[1])
+                d.append([minute*60+seconds, "♪" if i.split("]")[1] == " " else i.split("]")[1], count])
+                count += 1
 
     print("\033c", end="")
     audio = AudioSegment.from_file(path)
