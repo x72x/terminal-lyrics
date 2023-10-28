@@ -135,7 +135,7 @@ def main(page: ft.Page):
                             count += 1
                     page.add(
                         ft.Row(
-                            controls=[ft.ElevatedButton("⁩", on_click=exit_full, icon=ft.icons.FULLSCREEN_EXIT)],
+                            controls=[ft.ElevatedButton("-", on_click=exit_full, icon=ft.icons.FULLSCREEN_EXIT)],
                             alignment=ft.MainAxisAlignment.SPACE_AROUND
                         )
                     )
@@ -171,7 +171,7 @@ def main(page: ft.Page):
     )
     page.add(
         ft.Row(
-            controls=[ft.ElevatedButton("⁩", on_click=exit_full, icon=ft.icons.FULLSCREEN_EXIT)],
+            controls=[ft.ElevatedButton("", on_click=exit_full, icon=ft.icons.FULLSCREEN_EXIT)],
             alignment=ft.MainAxisAlignment.SPACE_AROUND
         )
     )
