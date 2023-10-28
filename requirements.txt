@@ -2,4 +2,5 @@ syncedlyrics
 colorama
 yt-dlp
 pydub
+flet
 #python-vlc
